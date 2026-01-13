@@ -35,7 +35,27 @@ export default defineType({
       name: 'content', // ← Changed from body
       title: 'Content',
       type: 'array',
-      of: [{type: 'block'}],
+      of: [
+        {type: 'block'},
+        {
+          type: 'image',
+          options: {hotspot: true},
+          fields: [
+            {
+              name: 'alt',
+              title: 'Alt Text',
+              type: 'string',
+              description: 'Describe the image for accessibility',
+            },
+            {
+              name: 'caption',
+              title: 'Caption',
+              type: 'string',
+              description: 'Optional caption to display below the image',
+            },
+          ],
+        },
+      ],
     }),
     defineField({
       name: 'author',
